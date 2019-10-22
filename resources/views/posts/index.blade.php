@@ -9,6 +9,7 @@
 		posts
 	</div>
 	<div class="card-body">
+		@if ($posts->count() > 0)
 		<table class="table">
 			<thead>
 				<th>image</th>
@@ -20,17 +21,31 @@
 			<tbody>
 				@foreach ($posts as $item)
 					<tr>
-						<td> <img src="{{ asset($item->image) }}" width="60px" height="60px" alt=""> </td>
+						<td> 
+							<img src="{{ asset("storage/{$item->image}") }}" width="60px" height="60px" alt=""> 
+							
+						</td>
 						<td> {{ $item->name }} </td>
 						<td> {{ $item->description }} </td>
 						<td class="float-right">
-							<a href="#" class="btn btn-primary btn-sm "> edit </a>
-							<button class="btn btn-danger btn-sm " onclick="">delete</button>
+							@if(!$item->trashed())
+								<a href="#" class="btn btn-primary btn-sm "> edit </a>
+							@endif
+							<form action="{{ route('posts.destroy', $item->id) }}" method="POST">
+								@csrf
+								@method('DELETE')
+								<button type="submit" class="btn btn-danger btn-sm">
+									{{ $item->trashed() ? 'del' : 'trash' }}
+								</button>
+							</form>
 						</td>
 					</tr>
 				@endforeach
 			</tbody>
 		</table>
+		@else
+			<h3 class="text-center">No post yet</h3>
+		@endif
 
 		<!-- Modal -->
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

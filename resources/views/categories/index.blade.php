@@ -9,6 +9,7 @@
 		categories
 	</div>
 	<div class="card-body">
+		@if ($categories->count() > 0)
 		<table class="table">
 			<thead>
 				<th>name</th>
@@ -27,6 +28,9 @@
 				@endforeach
 			</tbody>
 		</table>
+		@else
+			<h3 class="text-center">No post yet</h3>
+		@endif
 
 		<!-- Modal -->
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

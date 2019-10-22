@@ -93,8 +93,14 @@
                                 <li class="list-group-item">
                                     <a href="/posts" class="btn btn-link">Posts</a>
                                 </li>
+                                
                                 <li class="list-group-item">
                                     <a href="/categories" class="btn btn-link">Categries</a>
+                                </li>
+                            </ul>
+                            <ul class="list-group mt-5">
+                                <li class="list-group-item">
+                                    <a href="{{ route('trashed-post.index') }}" class="btn btn-link">Trashed Posts</a>
                                 </li>
                             </ul>
                         </div>
