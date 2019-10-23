@@ -29,7 +29,7 @@
 						<td> {{ $item->description }} </td>
 						<td class="float-right">
 							@if(!$item->trashed())
-								<a href="#" class="btn btn-primary btn-sm "> edit </a>
+								<a href="{{ route('posts.edit', $item->id) }}" class="btn btn-primary btn-sm "> edit </a>
 							@endif
 							<form action="{{ route('posts.destroy', $item->id) }}" method="POST">
 								@csrf
