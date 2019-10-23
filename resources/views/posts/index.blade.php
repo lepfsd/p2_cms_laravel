@@ -15,7 +15,6 @@
 				<th>image</th>
 				<th>title</th>
 				<th>description</th>
-				
 				<th></th>
 			</thead>
 			<tbody>
@@ -27,10 +26,21 @@
 						</td>
 						<td> {{ $item->name }} </td>
 						<td> {{ $item->description }} </td>
-						<td class="float-right">
-							@if(!$item->trashed())
-								<a href="{{ route('posts.edit', $item->id) }}" class="btn btn-primary btn-sm "> edit </a>
-							@endif
+						
+						@if ($item->trashed())
+							<td>
+								<form action="{{ route('restore-posts', $item->id)}}" method="POST">
+									@csrf
+									@method('PUT')
+									<button type="submit" class="btn btn-info btn-sm">restore</button>
+								</form>
+							</td>
+						@else
+							<td>
+								<a href="{{ route('posts.edit', $item->id) }}" class="btn btn-info btn-sm "> edit </a>
+							</td>
+						@endif
+						<td>
 							<form action="{{ route('posts.destroy', $item->id) }}" method="POST">
 								@csrf
 								@method('DELETE')
@@ -47,30 +57,7 @@
 			<h3 class="text-center">No post yet</h3>
 		@endif
 
-		<!-- Modal -->
-		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<form action="" method="POST" id="deleteCategoryForm">
-					@method('DELETE')
-					@csrf
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">delete this category ?</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">no, go back</button>
-							<button type="submit" class="btn btn-danger">yes, delete</button>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
+		
 	</div>
 </div>
 @endsection
