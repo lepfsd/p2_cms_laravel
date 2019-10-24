@@ -24,6 +24,20 @@
 					<input id="content" type="hidden" name="content" value="{{ isset($post->content) ? $post->content : '' }}">
   					<trix-editor input="content"></trix-editor>
 				</div>
+				<div class="form-group">
+					<label for="category">category</label>
+					<select name="category" id="" class="form-control">
+						@foreach ($categories as $category)
+							<option value="{{ $category->id }}"
+									{{--@if ($category->id === $post->category_id)
+										selected
+									@endif --}}
+							>
+								{{ $category->name }}
+							</option>
+						@endforeach
+					</select>
+				</div>
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group">

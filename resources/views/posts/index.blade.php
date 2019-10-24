@@ -14,7 +14,7 @@
 			<thead>
 				<th>image</th>
 				<th>title</th>
-				<th>description</th>
+				<th>category</th>
 				<th></th>
 			</thead>
 			<tbody>
@@ -25,7 +25,11 @@
 							
 						</td>
 						<td> {{ $item->name }} </td>
-						<td> {{ $item->description }} </td>
+						<td>  
+							<a href="{{ route('categories.edit', $item->category->id) }}" class="btn btn-link">
+								{{ $item->category->name }}
+							</a>
+						</td>
 						
 						@if ($item->trashed())
 							<td>

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 class Post extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['name', 'description', 'content', 'published_at', 'image'];
+    protected $fillable = ['name', 'description', 'content', 'published_at', 'image', 'category_id'];
 
     /**
      * Delete from storage
@@ -19,5 +19,10 @@ class Post extends Model
     public function deleteImage()
     {
         Storage::delete($this->image);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

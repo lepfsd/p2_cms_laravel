@@ -100,7 +100,7 @@
                                 </li>
                                 
                                 <li class="list-group-item">
-                                    <a href="/categories" class="btn btn-link">Categries</a>
+                                    <a href="/categories" class="btn btn-link">Categories</a>
                                 </li>
                             </ul>
                             <ul class="list-group mt-5">
