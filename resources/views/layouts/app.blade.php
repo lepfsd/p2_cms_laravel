@@ -106,7 +106,9 @@
                                 <li class="list-group-item">
                                     <a href="/posts" class="btn btn-link">Posts</a>
                                 </li>
-                                
+                                <li class="list-group-item">
+                                    <a href="/tags" class="btn btn-link">Tags</a>
+                                </li>
                                 <li class="list-group-item">
                                     <a href="/categories" class="btn btn-link">Categories</a>
                                 </li>
