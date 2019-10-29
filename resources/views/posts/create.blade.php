@@ -45,7 +45,7 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="tags">tags</label>
-							<select name="tags[]" id="tags" class="form-control" multiple>
+							<select name="tags[]" id="tags" class="form-control js-example-basic-single" multiple>
 								@foreach ($tags as $tag)
 									<option value="{{ $tag->id }}"
 										@if (isset($post))
@@ -92,15 +92,21 @@
 @section('css')
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.0/trix.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.11/css/select2.min.css" rel="stylesheet" />
 @endsection
 
 @section('scripts')
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.0/trix.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.11/js/select2.min.js"></script>
 	<script>
 		flatpickr("#published_at", {
 			enableTime: true
+		});
+
+		// In your Javascript (external .js resource or <script> tag)
+		$(document).ready(function() {
+			$('.js-example-basic-single').select2();
 		});
 	</script>
 @endsection
