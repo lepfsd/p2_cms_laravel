@@ -21,7 +21,7 @@
 				@foreach ($posts as $item)
 					<tr>
 						<td> 
-							<img src="{{ asset("storage/{$item->image}") }}" width="60px" height="60px" alt=""> 
+							<img src="{{ Gravatar::src($item->name) }}" width="60px" height="60px" alt=""> 
 							
 						</td>
 						<td> {{ $item->name }} </td>

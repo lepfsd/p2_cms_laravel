@@ -103,6 +103,11 @@
                     <div class="row">
                         <div class="col-md-3">
                             <ul class="list-group">
+                                @if (auth()->user()->isAdmin())
+                                    <li class="list-group-item">
+                                        <a href="/users" class="btn btn-link">Users</a>
+                                    </li>
+                                @endif
                                 <li class="list-group-item">
                                     <a href="/posts" class="btn btn-link">Posts</a>
                                 </li>
