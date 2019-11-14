@@ -4,6 +4,7 @@ use App\Post;
 use App\Category;
 use App\Tag;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class PostsTableSeeder extends Seeder
 {
@@ -26,7 +27,13 @@ class PostsTableSeeder extends Seeder
             'name' => 'Partnership'
         ]);
 
-        $post1 = Post::create([
+        $author1 = App\User::create([
+            'name' => 'john doe',
+            'email' => 'john@doe.com',
+            'password' => Hash::make('password')
+        ]);
+
+        $post1 = $author1->posts()->create([
             'name' => 'We relocated our office to a new designed garage',
             'description' => 'Congratulate and thank to Maryam for joining our team',
             'content' => 'Congratulate and thank to Maryam for joining our team',
@@ -34,7 +41,7 @@ class PostsTableSeeder extends Seeder
             'image' => 'posts/1.jpg'
         ]);
 
-        $post2 = Post::create([
+        $post2 = $author1->posts()->create([
             'name' => 'Best practices for minimalist design with example',
             'description' => 'Congratulate and thank to Maryam for joining our team',
             'content' => 'Congratulate and thank to Maryam for joining our team',
@@ -42,7 +49,7 @@ class PostsTableSeeder extends Seeder
             'image' => 'posts/2.jpg'
         ]);
 
-        $post3 = Post::create([
+        $post3 = $author1->posts()->create([
             'name' => 'New published books to read by a product designer',
             'description' => 'Congratulate and thank to Maryam for joining our team',
             'content' => 'Congratulate and thank to Maryam for joining our team',

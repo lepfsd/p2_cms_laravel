@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 class Post extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['name', 'description', 'content', 'published_at', 'image', 'category_id'];
+    protected $fillable = ['name', 'description', 'content', 'published_at', 'image', 'category_id', 'user_id'];
 
     /**
      * Delete from storage
@@ -35,4 +35,10 @@ class Post extends Model
     {
         return in_array($id, $this->tags->pluck('id')->toArray()); 
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }
