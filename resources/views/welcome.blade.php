@@ -34,7 +34,7 @@
                 @foreach ($posts as $post)
                   <div class="col-md-6">
                       <div class="card border hover-shadow-6 mb-6 d-block">
-                        <a href="{{ route('blog.show', $post->id) }}"><img class="card-img-top" src="{{Gravatar::src($post->name)}}" alt="Card image cap"></a>
+                        <a href="{{ route('blog.show', $post->id) }}"><img class="card-img-top" height="200" width="200" src="{{Gravatar::src($post->name)}}" alt="Card image cap"></a>
                         <div class="p-6 text-center">
                           <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">{{ $post->category->name }}</a></p>
                           <h5 class="mb-0"><a class="text-dark" href="{{ route('blog.show', $post->id) }}">{{ $post->name }}</a></h5>
@@ -47,12 +47,14 @@
               </div>
 
 
-              <nav class="flexbox mt-30">
+              {{--<nav class="flexbox mt-30">
                 <a class="btn btn-white disabled"><i class="ti-arrow-left fs-9 mr-4"></i> Newer</a>
                 <a class="btn btn-white" href="#">Older <i class="ti-arrow-right fs-9 ml-4"></i></a>
-              </nav>
-            </div>
+              </nav> --}}
 
+              {{ $posts->links() }}
+            </div>
+            
 
 
             <div class="col-md-4 col-xl-3">
