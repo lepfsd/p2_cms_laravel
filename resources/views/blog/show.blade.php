@@ -53,7 +53,7 @@
 			<div class="row">
 				<div class="gap-xy-2 mt-6">
 					@foreach($post->tags as $tag)
-						<a href="#" class="badge badge-pill badge-secondary">
+						<a href="{{ route('blog.tag', $tag->id) }}" class="badge badge-pill badge-secondary">
 							{{ $tag->name }}
 						</a>
 
