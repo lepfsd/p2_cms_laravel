@@ -373,6 +373,8 @@
     <!-- Scripts -->
     <script src=" {{ asset('js/page.min.js') }} "></script>
     <script src=" {{ asset('js/script.js') }} "></script>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e3c9c6dd07cebd6"></script>
 
   </body>
 </html>
